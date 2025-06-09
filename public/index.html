@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Include Select2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <!-- Link Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Support xlsx -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <title>Campaign URL Tracker</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Affiliate Campaign Tracker</h2>
+      <p class="subtitle">Track and manage your affiliate campaign URLs with ease</p>
+    </div>
+
+    <div class="form-section">
+      <div class="form-grid">
+        <div class="form-group">
+          <label id="campaign-link" for="campaign-url">Campaign URL <span style="color:red;">*</span></label>
+          <input required id="campaign-url" placeholder="e.g. Campaign URL (https://brand.domain.com/sub-page)" />
+        </div>
+        <div class="form-group">
+          <label for="campaign-tags">Tags/Notes/Campaign Name <span style="color:red;">*</span></label>
+          <input required id="campaign-tags" placeholder="e.g. chat, ai, marketing, manychat campaign" />
+        </div>
+        <div class="form-group">
+          <label for="url-country">Country <span id="country-status" class="status-indicator"></span></label>
+          <select id="url-country">
+            <option value="">Detecting location...</option>
+            <option value="IN">🇮🇳 India (IN)</option>
+            <option value="US">🇺🇸 United States (US)</option>
+            <option value="CA">🇨🇦 Canada (CA)</option>
+            <option value="AU">🇦🇺 Australia (AU)</option>
+            <option value="GB">🇬🇧 United Kingdom (GB)</option>
+            <option value="NZ">🇳🇿 New Zealand (NZ)</option>
+            <option value="SG">🇸🇬 Singapore (SG)</option>
+            <option value="HK">🇭🇰 Hong Kong (HK)</option>
+            <option value="MY">🇲🇾 Malaysia (MY)</option>
+            <option value="PH">🇵🇭 Philippines (PH)</option>
+            <option value="ID">🇮🇩 Indonesia (ID)</option>
+            <option value="TH">🇹🇭 Thailand (TH)</option>
+            <option value="VN">🇻🇳 Vietnam (VN)</option>
+            <option value="BR">🇧🇷 Brazil (BR)</option>
+            <option value="AR">🇦🇷 Argentina (AR)</option>
+            <option value="CO">🇨🇴 Colombia (CO)</option>
+            <option value="MX">🇲🇽 Mexico (MX)</option>
+            <option value="PE">🇵🇪 Peru (PE)</option>
+            <option value="CL">🇨🇱 Chile (CL)</option>
+            <option value="EC">🇪🇨 Ecuador (EC)</option>
+            <option value="BO">🇧🇴 Bolivia (BO)</option>
+            <option value="UY">🇺🇾 Uruguay (UY)</option>
+            <option value="PY">🇵🇾 Paraguay (PY)</option>
+            <option value="UZ">🇺🇿 Uzbekistan (UZ)</option>
+            <option value="KZ">🇰🇿 Kazakhstan (KZ)</option>
+            <option value="KG">🇰🇬 Kyrgyzstan (KG)</option>
+            <option value="AZ">🇦🇿 Azerbaijan (AZ)</option>
+            <option value="GE">🇬🇪 Georgia (GE)</option>
+            <option value="AM">🇦🇲 Armenia (AM)</option>
+            <option value="TM">🇹🇲 Turkmenistan (TM)</option>
+            <option value="DE">🇩🇪 Germany (DE)</option>
+            <option value="FR">🇫🇷 France (FR)</option>
+            <option value="IT">🇮🇹 Italy (IT)</option>
+            <option value="ES">🇪🇸 Spain (ES)</option>
+            <option value="NL">🇳🇱 Netherlands (NL)</option>
+            <option value="JP">🇯🇵 Japan (JP)</option>
+            <option value="KR">🇰🇷 South Korea (KR)</option>
+            <option value="RU">🇷🇺 Russia (RU)</option>
+            <option value="CN">🇨🇳 China (CN)</option>
+            <option value="TR">🇹🇷 Turkey (TR)</option>
+            <option value="SA">🇸🇦 Saudi Arabia (SA)</option>
+            <option value="AE">🇦🇪 UAE (AE)</option>
+            <option value="EG">🇪🇬 Egypt (EG)</option>
+            <option value="ZA">🇿🇦 South Africa (ZA)</option>
+            <option value="CZ">🇨🇿 Czechia</option>
+            <option value="UA">🇺🇦 Ukraine</option>
+            <option value="PL">🇵🇱 Poland</option>
+            <option value="AL">🇦🇱 Albania</option>
+            <option value="DZ">🇩🇿 Algeria</option>
+            <option value="AD">🇦🇩 Andorra</option>
+            <option value="AT">🇦🇹 Austria</option>
+            <option value="BS">🇧🇸 Bahamas</option>
+            <option value="BD">🇧🇩 Bangladesh</option>
+            <option value="BE">🇧🇪 Belgium</option>
+            <option value="BZ">🇧🇿 Belize</option>
+            <option value="BT">🇧🇹 Bhutan</option>
+            <option value="NG">🇳🇬 Nigeria</option>
+            <option value="BG">🇧🇬 Bulgaria</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn-primary" onclick="addCampaign()">✨ Add Campaign</button>
+        <button class="btn-secondary" onclick="exportCSV()">📊 Export CSV</button>
+        <button class="refresh-location" onclick="detectLocation()">🌍 Refresh Location</button>
+        <select class="custom-select" id="sortDate" onchange="sortTableByDate()">
+          <option value="newest">📅 Sort by Newest</option>
+          <option value="oldest">📅 Sort by Oldest</option>
+          <option value="import">📥 Sort by Import Order</option>
+        </select>
+        <input type="text" id="dateRange" placeholder="📆 Filter by Date Range" />
+        <button onclick="clearDateFilter()" class="refresh-urls-btn" style="background: #9ca3af;">
+          ❌ Clear Date Filter
+        </button>
+        <div class="form-group">
+          <label for="fileImport">Import File (Just drop the file rest leave it to me)</label>
+          <input type="file" id="fileImport" accept=".csv, .xlsx" onchange="handleFileImport(event)" />
+        </div>
+      </div>
+    </div>
+
+    <div class="table-section">
+      <div class="table-controls">
+        <input class="search-bar" id="searchInput" onkeyup="filterTable()" placeholder="🔍 Search campaigns, URLs, tags...">
+        <button class="refresh-urls-btn" id="refreshAllBtn" onclick="refreshAllUrls()">
+          🔄 Refresh All URLs
+        </button>
+        <button class="btn-warning" id="deleteAllEntries" onclick="deleteTableRows()">
+          🗑️ Delete All Entries
+        </button>
+      </div>
+
+      <table id="campaignTable">
+        <thead>
+          <tr>
+            <th>📅 Date Added</th>
+            <th>🔗 Campaign URL</th>
+            <th>🎯 Final URL</th>
+            <th>🏷️ Tags/Notes/Campaign Name</th>
+            <th>⚡ Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+        
+        <tfoot>
+          <tr id="loadingRow" style="display: none;">
+            <td colspan="5" style="text-align: center; font-style: italic;">
+              Loading...
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <div class="footer">
+      <p class="copyright">Copyright © 2025 <a href="#">Rupesh Shah</a>. All rights reserved.</p>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -456,7 +456,7 @@ td[contenteditable="true"]:focus {
 
 /* Sort Dropdown & Date Range Picker */
 .table-controls select,
-.table-controls input[type="text"] {
+.table-controls input[type="text"]#dateRange {
   padding: 15px 20px;
   border: 2px solid #e5e7eb;
   border-radius: 12px;

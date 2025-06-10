@@ -378,6 +378,7 @@ td[contenteditable="true"]:focus {
 
 .file-import{
   margin-top: 25px;
+  max-width: 30%;
 }
 
 .clear-date-btn:hover {

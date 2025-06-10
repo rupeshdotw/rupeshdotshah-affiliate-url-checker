@@ -1,4 +1,9 @@
 {
+  "name": "rupeshdotshah-affiliate-url-resolver",
+  "author": "Rupesh Shah",
+  "version": "1.0.0",
+  "description": "A powerful and efficient URL resolution service that tracks campaign parameters, handles complex redirects, and validates marketing URLs.",
+  "main": "index.js",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
@@ -6,6 +11,9 @@
     "path": "^0.12.7",
     "puppeteer": "^24.10.0",
     "url": "^0.11.4"
+  },
+  "scripts": {
+    "start": "node index.js"
   },
   "type": "module"
 }

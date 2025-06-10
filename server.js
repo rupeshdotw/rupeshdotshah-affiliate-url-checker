@@ -153,8 +153,8 @@ async function tryPuppeteerResolve(inputUrl) {
   try {
     browser = await puppeteer.launch({
       headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox", "--no-zygote", "--single-process"],
-      executablePath: process.NODE_ENV === 'production' ? process.env.CHROME_EXECUTABLE_PATH : puppeteer.executablePath(),
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      //executablePath: process.NODE_ENV === 'production' ? process.env.CHROME_EXECUTABLE_PATH : puppeteer.executablePath(),
     });
 
     const page = await browser.newPage();
@@ -225,10 +225,7 @@ async function tryAdvancedPuppeteer(inputUrl) {
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
-        "--no-zygote",
-        "--single-process",
       ],
-      executablePath: process.NODE_ENV === 'production' ? process.env.CHROME_EXECUTABLE_PATH : puppeteer.executablePath(),
     });
 
     const page = await browser.newPage();

@@ -363,6 +363,7 @@ td[contenteditable="true"]:focus {
 }
 
 .clear-date-btn {
+  /* background: #9ca3af */
   background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
   color: white;
   border: none;

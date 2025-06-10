@@ -323,7 +323,7 @@ td[contenteditable="true"]:focus {
   color: white;
   border: none;
   padding: 8px 12px;
-  border-radius: 6px;
+  border-radius: 12px;
   font-size: 0.8rem;
   cursor: pointer;
   margin-left: 10px;

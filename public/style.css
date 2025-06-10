@@ -376,6 +376,10 @@ td[contenteditable="true"]:focus {
   letter-spacing: 0.5px;
 }
 
+.file-import{
+  margin-top: 10px;
+}
+
 .clear-date-btn:hover {
   background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
   transform: translateY(-1px);

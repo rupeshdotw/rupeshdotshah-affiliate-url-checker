@@ -971,9 +971,9 @@ async function processImportedData(importedData) {
       const batchStartIndex = i;
 
       // Update progress
-      progressNotification.innerHTML = `📊 Processing batch ${
-        Math.floor(i / batchSize) + 1
-      }... (${totalProcessed}/${importedData.length} completed)`;
+      // progressNotification.innerHTML = `📊 Processing batch ${
+      //   Math.floor(i / batchSize) + 1
+      // }... (${totalProcessed}/${importedData.length} completed)`;
 
       // Process current batch
       const batchPromises = batch.map(async (item, batchIndex) => {

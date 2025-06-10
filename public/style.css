@@ -72,7 +72,7 @@ h2 {
   color: #374151;
   margin-bottom: 8px;
   font-size: 1rem;
-  text-transform: capitalize;
+  text-transform: none;
   letter-spacing: 0.5px;
 }
 

@@ -1050,7 +1050,7 @@ async function processImportedData(importedData) {
     }
 
     // Final update
-    //progressNotification.innerHTML = `🎉 All ${totalProcessed} campaigns processed successfully!`;
+    progressNotification.innerHTML = `🎉 All ${totalProcessed} campaigns processed successfully!`;
 
     // Clean up originalIndex property after import is complete
     setTimeout(() => {

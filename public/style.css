@@ -367,8 +367,8 @@ td[contenteditable="true"]:focus {
   background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
   color: white;
   border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
+  padding: 14px 20px;
+  border-radius: 12px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;

@@ -154,19 +154,18 @@
               ❌ Clear Date Filter
             </button>
           </div>
-          
         </div>
-        <div class="form-group">
-            <label for="fileImport"
-              >Import File (Just drop the file rest leave it to me)</label
-            >
-            <input
-              type="file"
-              id="fileImport"
-              accept=".csv, .xlsx"
-              onchange="handleFileImport(event)"
-            />
-          </div>
+        <div class="form-group file-import">
+          <label for="fileImport"
+            >Import File (Just drop the file rest leave it to me)</label
+          >
+          <input
+            type="file"
+            id="fileImport"
+            accept=".csv, .xlsx"
+            onchange="handleFileImport(event)"
+          />
+        </div>
       </div>
 
       <div class="table-section">
@@ -218,7 +217,7 @@
     <div class="footer">
       <p class="copyright">
         <!-- Copyright © 2025 <a href="#">Rupesh Shah</a>. All rights reserved. -->
-         Made with ❤️ by Rupesh Shah
+        Made with ❤️ by Rupesh Shah
       </p>
     </div>
     <script src="app.js"></script>

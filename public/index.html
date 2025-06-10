@@ -140,17 +140,7 @@
             <option value="oldest">📅 Sort by Oldest</option>
             <option value="import">📥 Sort by Import Order</option>
           </select>
-          <div class="form-group">
-            <label for="fileImport"
-              >Import File (Just drop the file rest leave it to me)</label
-            >
-            <input
-              type="file"
-              id="fileImport"
-              accept=".csv, .xlsx"
-              onchange="handleFileImport(event)"
-            />
-                      <input
+          <input
             type="text"
             id="dateRange"
             placeholder="📆 Filter by Date Range"
@@ -162,6 +152,16 @@
           >
             ❌ Clear Date Filter
           </button>
+          <div class="form-group">
+            <label for="fileImport"
+              >Import File (Just drop the file rest leave it to me)</label
+            >
+            <input
+              type="file"
+              id="fileImport"
+              accept=".csv, .xlsx"
+              onchange="handleFileImport(event)"
+            />
           </div>
         </div>
       </div>

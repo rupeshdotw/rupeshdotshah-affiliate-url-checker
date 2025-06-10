@@ -3,7 +3,8 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
-import puppeteer from "puppeteer";
+import puppeteer, { executablePath } from "puppeteer";
+import { configDotenv } from "dotenv";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -152,7 +153,8 @@ async function tryPuppeteerResolve(inputUrl) {
   try {
     browser = await puppeteer.launch({
       headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      args: ["--no-sandbox", "--disable-setuid-sandbox", "--no-zygote", "--single-process"],
+      executablePath: process.NODE_ENV === 'production' ? process.env.CHROME_EXECUTABLE_PATH : puppeteer.executablePath(),
     });
 
     const page = await browser.newPage();
@@ -223,7 +225,10 @@ async function tryAdvancedPuppeteer(inputUrl) {
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
+        "--no-zygote",
+        "--single-process",
       ],
+      executablePath: process.NODE_ENV === 'production' ? process.env.CHROME_EXECUTABLE_PATH : puppeteer.executablePath(),
     });
 
     const page = await browser.newPage();

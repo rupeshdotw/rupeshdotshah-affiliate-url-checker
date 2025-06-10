@@ -947,8 +947,8 @@ async function processImportedData(importedData) {
         position: fixed;
         top: 70px;
         right: 20px;
-        /* background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); */
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        /* background: linear-gradient(135deg, #10b981 0%, #059669 100%); */
         color: white;
         padding: 15px 25px;
         border-radius: 12px;
@@ -971,9 +971,9 @@ async function processImportedData(importedData) {
       const batchStartIndex = i;
 
       // Update progress
-      // progressNotification.innerHTML = `📊 Processing batch ${
-      //   Math.floor(i / batchSize) + 1
-      // }... (${totalProcessed}/${importedData.length} completed)`;
+      progressNotification.innerHTML = `📊 Processing batch ${
+        Math.floor(i / batchSize) + 1
+      }... (${totalProcessed}/${importedData.length} completed)`;
 
       // Process current batch
       const batchPromises = batch.map(async (item, batchIndex) => {

@@ -20,7 +20,7 @@ A powerful and efficient URL resolution service that tracks campaign parameters,
 
 - ⚡ **Lightning Fast Resolution**: Primary resolution in under 1 second
 - 🔄 **Smart Fallback System**: Multi-tiered approach for handling complex redirects
-- 🔍 **Parameter Detection**: Tracks `clickid`, `utm_source`, and `clickref` parameters
+- 🔍 **Parameter Detection**: Tracks url parameters like : `clickid`, `utm_source`, `im_ref`, and `clickref`
 - 🌐 **Browser Emulation**: Uses Puppeteer for JavaScript-heavy redirects
 - 📊 **Detailed Response**: Complete redirect chain and parameter analysis
 - 🛡️ **Robust Error Handling**: Comprehensive error catching and timeout protection

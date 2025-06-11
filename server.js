@@ -111,12 +111,7 @@ app.get("/resolve", async (req, res) => {
   try {
     let result = await trySimpleFetch(inputUrl);
 
-    if (result.success && result.finalUrl.includes("clickid=") ||
-    result.finalUrl.includes("clickref=") ||
-    result.finalUrl.includes("utm_source=") ||
-    result.finalUrl.includes("im_ref=") ||
-    result.finalUrl.includes("mkt_source=")
-    ) {
+    if (result.success && result.finalUrl.includes("clickid=")) {
       return res.json(result.data);
     }
 

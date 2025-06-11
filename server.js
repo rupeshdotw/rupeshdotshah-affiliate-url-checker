@@ -46,6 +46,7 @@ async function trySimpleFetch(inputUrl, timeoutMs = 1000) {
           hasClickId: finalUrl.includes("clickid="),
           hasUtmSource: finalUrl.includes("utm_source="),
           hasClickRef: finalUrl.includes("clickref="),
+          hasImRef: finalUrl.includes("im_ref=")
         },
       };
     }
@@ -118,7 +119,8 @@ app.get("/resolve", async (req, res) => {
     if (
       (result.success && result.finalUrl.includes("clickid=")) ||
       result.finalUrl.includes("clickref=") ||
-      result.finalUrl.includes("utm_source=")
+      result.finalUrl.includes("utm_source=") ||
+      result.finalUrl.includes("im_ref=")
     ) {
       return res.json(result.data);
     }
@@ -191,7 +193,8 @@ async function tryPuppeteerResolve(inputUrl) {
       if (
         (stableCount >= 2 && finalUrl.includes("clickid=")) ||
         finalUrl.includes("clickref=") ||
-        finalUrl.includes("utm_source=")
+        finalUrl.includes("utm_source=") ||
+        finalUrl.includes("im_ref=")
       )
         break;
     }
@@ -206,6 +209,7 @@ async function tryPuppeteerResolve(inputUrl) {
         hasClickId: finalUrl.includes("clickid="),
         hasClickRef: finalUrl.includes("clickref="),
         hasUtmSource: finalUrl.includes("utm_source="),
+        hasImRef: finalUrl.includes("im_ref=")
       },
     };
   } catch {
@@ -239,6 +243,7 @@ async function tryAdvancedPuppeteer(inputUrl) {
       if (
         url.includes("clickid=") ||
         url.includes("clickref=") ||
+        url.includes("im_ref=") ||
         (url.includes("utm_source=") && !bestUrlWithClickId)
       )
         bestUrlWithClickId = url;
@@ -254,6 +259,7 @@ async function tryAdvancedPuppeteer(inputUrl) {
           if (
             location.includes("clickid=") ||
             location.includes("clickref=") ||
+            location.includes("im_ref=") ||
             (location.includes("utm_source") && !bestUrlWithClickId)
           ) {
             bestUrlWithClickId = location;
@@ -278,6 +284,7 @@ async function tryAdvancedPuppeteer(inputUrl) {
         hasClickId: finalUrl.includes("clickid="),
         hasClickRef: finalUrl.includes("clickref="),
         hasUtmSource: finalUrl.includes("utm_source="),
+        hasImRef: finalUrl.includes("im_ref="),
         redirectChain: allRedirects,
       },
     };
